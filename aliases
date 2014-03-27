@@ -1,0 +1,10 @@
+alias fs='foreman s'
+alias V='mvim'
+alias chrome="open -a \"Google Chrome\""
+alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --allow-file-access-from-files"
+alias vbrestart="sudo /Library/StartupItems/VirtualBox/VirtualBox restart"
+alias top_commands='history | awk '\''{a[$2]++}END{for(i in a){print a[i] " " i}}'\'' | sort -rn | head'
+alias test_migrate='RAILS_ENV=test rake db:migrate'
+alias pry='pry -r ./config/environment'
+alias s3='s3cmd'
+alias gs='gss'
