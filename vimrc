@@ -5,11 +5,7 @@ set history=1000
 set number
 set incsearch
 
-set guifont=Monaco:h11
-set bg=dark
-colorscheme ir_black
 syntax on
-
 " Convert tabs to spaces
 set tabstop=2
 set shiftwidth=2
