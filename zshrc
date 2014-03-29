@@ -27,9 +27,9 @@ plugins=(git heroku brew rake bundler)
 
 source $ZSH/oh-my-zsh.sh
 
-eval "$(rbenv init -)"
-
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 source ~/.exports
 source ~/.aliases
+
+eval "$(rbenv init -)"
