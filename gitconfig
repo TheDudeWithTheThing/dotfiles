@@ -20,7 +20,7 @@
 	user = thedudewiththething
 [core]
 	editor = /usr/local/bin/vim
-	excludesfile = /Users/shaun/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [alias]
     st = status
     ci = commit
