@@ -9,6 +9,7 @@ nmap '' cs"'
 vmap <leader>ss :!sort -f<CR>
 vmap <leader>sS :!sort<CR>
 nmap <leader>sv :source $MYVIMRC<CR>
+nmap <leader>se :Errors<CR>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -37,9 +38,14 @@ vmap <D-/> <Plug>Commentary
 map <D-f> :CtrlP<CR>
 map <D-t> :CtrlPTag<CR>
 
-" Load NERDTree at startup and move the cursor to the main window
- autocmd VimEnter * NERDTree
- autocmd VimEnter * wincmd l
+" vim-rspec
+map <Leader>rt :call RunCurrentSpecFile()<CR>
+map <Leader>rs :call RunNearestSpec()<CR>
+map <Leader>rl :call RunLastSpec()<CR>
+map <Leader>ra :call RunAllSpecs()<CR>
 
-" Show hidden files in NERDTree
-" let NERDTreeShowHidden = 1
+" vim-rails
+map <leader>rc :Econtroller<CR>
+map <leader>rv :Eview<CR>
+map <leader>rm :Emodel<CR>
+map <leader>rf :Efactory<CR>
