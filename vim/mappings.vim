@@ -37,6 +37,7 @@ vmap <D-/> <Plug>Commentary
 
 map <D-f> :CtrlP<CR>
 map <D-t> :CtrlPTag<CR>
+nmap K :Ag "\b<C-R><C-W>\b"<CR>
 
 " vim-rspec
 map <Leader>rt :call RunCurrentSpecFile()<CR>
@@ -49,3 +50,8 @@ map <leader>rc :Econtroller<CR>
 map <leader>rv :Eview<CR>
 map <leader>rm :Emodel<CR>
 map <leader>rf :Efactory<CR>
+
+" single quote word
+map <leader>sqw ysiw'
+" double quote word
+map <leader>dqw ysiw"

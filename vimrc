@@ -20,12 +20,13 @@ set laststatus=2
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
 " Ack / Grep / CtrlP
-let g:ackprg="ag --nocolor --nogroup --column"
+set grepprg="ag --nocolor --nogroup --column"
+let g:agprg="ag --nocolor --nogroup --column --ignore=tags"
 let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching=0
 
 " Syntastic options
-let g:syntastic_check_on_open=1
+" let g:syntastic_check_on_open=1
 
 " Ctags
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
@@ -48,7 +49,8 @@ let g:ctrlp_prompt_mappings = {
 
 " vim-rails
 let g:rspec_runner = "os_x_iterm"
-"let g:rspec_command = 'rspec -fd {spec}'
+" let g:rspec_command = "!rspec --drb {spec}"
+
 
 source ~/.vim/mappings.vim
 
