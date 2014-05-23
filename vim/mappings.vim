@@ -31,6 +31,7 @@ nnoremap Y y$
 map <leader>fws :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " fix hash syntax
 map <leader>fhs :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
+vmap <leader>fhs :s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
 
 nmap <D-/> <Plug>CommentaryLine
 vmap <D-/> <Plug>Commentary

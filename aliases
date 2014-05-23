@@ -1,5 +1,6 @@
 alias fs='foreman s'
 alias V='mvim'
+alias v='mvim .'
 alias chrome="open -a \"Google Chrome\""
 alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --allow-file-access-from-files"
 alias vbrestart="sudo /Library/StartupItems/VirtualBox/VirtualBox restart"
@@ -16,3 +17,5 @@ alias agi='ag'
 alias rubopry='rubocop --only Debugger'
 alias rspec='spring rspec'
 alias grbm='git rebase master'
+alias print_zpl='lp -o raw -d ZebraZP505'
+alias undeployed="heroku releases -a blueapron | sed -n 2p | cut -d' ' -f4 | xargs -J % git log --oneline --decorate --color --graph master --not %"
