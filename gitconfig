@@ -1,6 +1,6 @@
 [user]
-	name = Shaun Butler
-	email = shaun.butler@gmail.com
+  name = Shaun Butler
+  email = shaun.butler@gmail.com
 [color]
   ui = auto
 [color "branch"]
@@ -17,10 +17,10 @@
   changed = green
   untracked = cyan
 [github]
-	user = thedudewiththething
+  user = thedudewiththething
 [core]
-	editor = /usr/local/bin/vim
-	excludesfile = ~/.gitignore_global
+  editor = /usr/local/bin/vim
+  excludesfile = ~/.gitignore_global
 [alias]
     st = status
     ci = commit
@@ -35,10 +35,15 @@
     # Show files ignored by git:
     ign = ls-files -o -i --exclude-standard
 [difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+  cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+  path = 
 [mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+  cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+  trustExitCode = true
 [commit]
-    template = ~/.gitmessage
+  template = ~/.gitmessage
+[rerere]
+  enabled = true
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f

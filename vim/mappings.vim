@@ -10,6 +10,7 @@ vmap <leader>ss :!sort -f<CR>
 vmap <leader>sS :!sort<CR>
 nmap <leader>sv :source $MYVIMRC<CR>
 nmap <leader>se :Errors<CR>
+nmap <leader>sc :lclose<CR>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j

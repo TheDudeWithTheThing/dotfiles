@@ -36,6 +36,7 @@ set list listchars=tab:»·,trail:·
 
 " git commit settings
 autocmd Filetype gitcommit setlocal spell textwidth=72
+au BufNewFile,BufRead *.es6 set filetype=javascript
 
 " CtrlP settings
 " make enter auto open in new tab
@@ -50,6 +51,10 @@ let g:ctrlp_prompt_mappings = {
 " vim-rails
 let g:rspec_runner = "os_x_iterm"
 " let g:rspec_command = "!rspec --drb {spec}"
+
+autocmd FileType ruby,eruby
+      \ set foldmethod=expr |
+      \ set foldexpr=getline(v:lnum)=~'^\\s*#'
 
 
 source ~/.vim/mappings.vim

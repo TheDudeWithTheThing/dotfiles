@@ -18,4 +18,6 @@ alias rubopry='rubocop --only Debugger'
 alias rspec='spring rspec'
 alias grbm='git rebase master'
 alias print_zpl='lp -o raw -d ZebraZP505'
-alias undeployed="heroku releases -a blueapron | sed -n 2p | cut -d' ' -f4 | xargs -J % git log --oneline --decorate --color --graph master --not %"
+alias undeployed="heroku releases -a blueapron | sed -n 2p | cut -d' ' -f4 | xargs -J % git log --oneline --decorate --color --graph master --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --not %"
+alias gw='grunt watch'
+alias cache_clear='heroku run rails runner -e production Rails.cache.clear'
