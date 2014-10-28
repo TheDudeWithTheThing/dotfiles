@@ -15,7 +15,6 @@ alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles NO; killall
 alias ag='ag --ignore=tags'
 alias agi='ag'
 alias rubopry='rubocop --only Debugger'
-alias rspec='spring rspec'
 alias grbm='git rebase master'
 alias print_zpl='lp -o raw -d ZebraZP505'
 alias undeployed="heroku releases -a blueapron | sed -n 2p | cut -d' ' -f4 | xargs -J % git log --oneline --decorate --color --graph master --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --not %"

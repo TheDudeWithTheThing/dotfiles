@@ -35,3 +35,15 @@ source ~/.aliases
 eval "$(rbenv init -)"
 
 source /usr/local/share/zsh/site-functions/_aws
+
+mkv_to_mp4() {
+  if [[ $# -ge 1 ]]; then
+    local infile=$1
+    local outfile=${(S)infile/mkv/mp4}
+    echo $1
+    echo $outfile
+    ffmpeg -i "$infile" -c:v copy -c:a libfdk_aac -b:a 128k "$outfile"
+  else
+    print "What file?"
+  fi
+}
