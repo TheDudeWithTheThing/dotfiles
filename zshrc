@@ -42,7 +42,7 @@ mkv_to_mp4() {
     local outfile=${(S)infile/mkv/mp4}
     echo $1
     echo $outfile
-    ffmpeg -i "$infile" -c:v copy -c:a libfdk_aac -b:a 128k "$outfile"
+    ffmpeg -i "$infile" -c:v copy -c:a libfdk_aac -b:a 128k ~/"$outfile"
   else
     print "What file?"
   fi

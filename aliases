@@ -5,7 +5,7 @@ alias chrome="open -a \"Google Chrome\""
 alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --allow-file-access-from-files"
 alias vbrestart="sudo /Library/StartupItems/VirtualBox/VirtualBox restart"
 alias top_commands='history | awk '\''{a[$2]++}END{for(i in a){print a[i] " " i}}'\'' | sort -rn | head'
-alias test_migrate='RAILS_ENV=test rake db:migrate; spring stop'
+alias test_migrate='RAILS_ENV=test rake db:drop db:setup db:migrate; spring stop'
 alias pry='pry -r ./config/environment'
 alias s3='s3cmd'
 alias gs='gss'
@@ -20,3 +20,7 @@ alias print_zpl='lp -o raw -d ZebraZP505'
 alias undeployed="heroku releases -a blueapron | sed -n 2p | cut -d' ' -f4 | xargs -J % git log --oneline --decorate --color --graph master --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --not %"
 alias gw='grunt watch'
 alias cache_clear='heroku run rails runner -e production Rails.cache.clear'
+alias make_erd='bundle exec erd --inheritance --filetype=dot --direct --attributes=foreign_keys,content; dot -Tpng erd.dot > erd.png'
+alias db_go='rake blueapron:db:import'
+alias gpbd='git branch --merged | grep -v "\*" | grep -v "master"'
+alias gpb='git branch --merged | grep -v "\*" | grep -v "master" | xargs -n 1 git branch -d'
