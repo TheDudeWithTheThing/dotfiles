@@ -19,6 +19,9 @@ set laststatus=2
 " Rubocop on save
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
 
+" Version of ruby
+let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby'
+
 " Ack / Grep / CtrlP
 set grepprg="ag --nocolor --nogroup --column"
 let g:agprg="ag --nocolor --nogroup --column --ignore=tags"
@@ -47,6 +50,7 @@ let g:ctrlp_prompt_mappings = {
     \ 'AcceptSelection("v")': ['<c-v>', '<RightMouse>'],
     \ }
 
+let g:ctrlp_custom_ignore = { 'dir': '\v[\/](node_modules)|(\.(git|hg|svn))$', 'file': '\v\.(exe|so|dll|DS_STORE)$' }
 
 " vim-rails
 let g:rspec_runner = "os_x_iterm"
@@ -58,6 +62,3 @@ autocmd FileType ruby,eruby
 
 
 source ~/.vim/mappings.vim
-
-" shamelessly stolen from janus
-" source ~/.vim/nerdtree.vim
