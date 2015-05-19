@@ -11,6 +11,7 @@ vmap <leader>sS :!sort<CR>
 nmap <leader>sv :source $MYVIMRC<CR>
 nmap <leader>se :Errors<CR>
 nmap <leader>sc :lclose<CR>
+nmap <leader>qc :ccl<CR>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j
@@ -52,6 +53,7 @@ map <leader>rc :Econtroller<CR>
 map <leader>rv :Eview<CR>
 map <leader>rm :Emodel<CR>
 map <leader>rf :Efactory<CR>
+map <C-W>gv <Plug>RailsVSplitFind
 
 " single quote word
 map <leader>sqw ysiw'
