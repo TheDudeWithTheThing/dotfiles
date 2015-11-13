@@ -23,8 +23,11 @@ set nobackup                    " don't want no backup files
 set nowritebackup               " don't make a backup before overwriting a file
 set noswapfile                  " no swap files
 
-" Rubocop on save
+" Syntastic options
+let g:syntastic_mode_map = { 'mode': 'active' }
 let g:syntastic_ruby_checkers = ['mri', 'rubocop']
+let g:syntastic_cucumber_cucumber_args="--profile syntastic"
+let g:syntastic_warning_symbol = "⚠"
 
 " Version of ruby
 let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby'

@@ -6,6 +6,7 @@ vnoremap <leader>c" :s/'/"/<CR>
 nmap "" cs'"
 nmap '' cs"'
 
+vmap <leader>uu :!uniq<CR>
 vmap <leader>ss :!sort -f<CR>
 vmap <leader>sS :!sort<CR>
 nmap <leader>sv :source $MYVIMRC<CR>
@@ -24,6 +25,9 @@ map <leader>ct :!ctags -R .<CR>
 
 " Vim Dash
 map <leader>d :Dash<CR>
+
+" Vim Ag
+map <leader>a :Ag<CR>
 
 " yank to end
 nnoremap Y y$

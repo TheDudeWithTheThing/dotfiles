@@ -1,4 +1,4 @@
-set guifont=Monaco:h11
+set guifont=Inconsolata:h14
 set bg=dark
 colorscheme jellybeans "ir_black
 

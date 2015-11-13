@@ -23,18 +23,16 @@ ZSH_THEME="robbyrussell"
 COMPLETION_WAITING_DOTS="true"
 
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git heroku brew rake bundler)
+plugins=(git heroku brew rake bundler docker boot2docker)
 
 source $ZSH/oh-my-zsh.sh
-
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 source ~/.exports
 source ~/.aliases
 
-eval "$(rbenv init -)"
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
-source /usr/local/share/zsh/site-functions/_aws
+eval "$(rbenv init -)"
 
 mkv_to_mp4() {
   if [[ $# -ge 1 ]]; then
