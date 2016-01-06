@@ -20,6 +20,12 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
+nmap <D-/> <Plug>CommentaryLine
+vmap <D-/> <Plug>Commentary
+
+map <D-f> :CtrlP<CR>
+map <D-t> :CtrlPTag<CR>
+
 " Index ctags from any project, including those outside Rails
 map <leader>ct :!ctags -R .<CR>
 
@@ -39,11 +45,6 @@ map <leader>fws :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 map <leader>fhs :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
 vmap <leader>fhs :s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
 
-nmap <D-/> <Plug>CommentaryLine
-vmap <D-/> <Plug>Commentary
-
-map <D-f> :CtrlP<CR>
-map <D-t> :CtrlPTag<CR>
 nmap K :Ag "\b<C-R><C-W>\b"<CR>
 
 " vim-rspec
@@ -56,7 +57,7 @@ map <Leader>ra :call RunAllSpecs()<CR>
 map <leader>rc :Econtroller<CR>
 map <leader>rv :Eview<CR>
 map <leader>rm :Emodel<CR>
-map <leader>rf :Efactory<CR>
+map <leader>rf :RVfactory<CR>
 map <C-W>gv <Plug>RailsVSplitFind
 
 " single quote word

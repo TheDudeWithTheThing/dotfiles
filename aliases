@@ -1,61 +1,69 @@
-alias fs='foreman s'
-alias V='mvim'
-alias v='mvim .'
-alias chrome="open -a \"Google Chrome\""
-alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --allow-file-access-from-files"
-alias vbrestart="sudo /Library/StartupItems/VirtualBox/VirtualBox restart"
-alias top_commands='history | awk '\''{a[$2]++}END{for(i in a){print a[i] " " i}}'\'' | sort -rn | head'
-alias test_migrate='RAILS_ENV=test rake db:drop db:create db:structure:load'
-alias pry='pry -r ./config/environment'
-alias s3='s3cmd'
-alias gs='gss'
-alias vimrc='mvim -O ~/.dotfiles/vimrc -O ~/.dotfiles/vim/mappings.vim -O ~/.dotfiles/vim/bundle.vim'
-alias show_hidden='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder'
-alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder'
 alias ag='ag --ignore=tags'
 alias agi='ag'
-alias rubopry='rubocop --only Debugger'
-alias print_zpl='lp -o raw -d ZebraZP505'
-alias undeployed="heroku releases -a blueapron | sed -n 2p | cut -d' ' -f4 | xargs -J % git log --oneline --decorate --color --graph master --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --not %"
-alias gw='grunt watch'
 alias cache_clear='heroku run rails runner -e production Rails.cache.clear'
-alias make_erd='bundle exec erd --inheritance --filetype=dot --direct --attributes=foreign_keys,content; dot -Tpng erd.dot > erd.png; rm erd.dot'
+alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --allow-file-access-from-files"
+alias chrome="open -a \"Google Chrome\""
 alias db_go='rake blueapron:db:import'
-alias mount_important='hdiutil attach ~/Dropbox/ImportantStuff.dmg -stdinpass'
-alias sr='spring rspec'
-alias nombom='rm -rf node_modules bower_components && npm install && bower install'
-alias mou='open -a Mou'
-alias start_mongo='mongod --config /usr/local/etc/mongod.conf'
-alias rbc='bundle exec rubocop -D $(git diff --name-only --diff-filter="ACM" master..HEAD -- "*.rb")'
-alias hl='history | less'
 alias embers='ember server --watcher=polling'
-alias rsa='rake spec:all'
-alias wms_restore='pg_restore --host localhost --port 5432 --dbname "wms_development" --role "blueapron" --no-password  --section pre-data --section data --section post-data --clean --verbose'
-alias ba_restore='pg_restore --host localhost --port 5432 --dbname "blueapron_stagecopy" --jobs=2 --role "blueapron" --no-password  --section pre-data --section data --section post-data --clean --verbose'
 alias env='env | sort'
+alias fs='foreman s'
+alias gs='gss'
+alias gw='grunt watch'
+alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder'
+alias hl='history | less'
+alias make_erd='bundle exec erd --inheritance --filetype=dot --direct --attributes=foreign_keys,content; dot -Tpng erd.dot > erd.png; rm erd.dot'
+alias mou='open -a Mou'
+alias mount_important='hdiutil attach ~/Dropbox/ImportantStuff.dmg -stdinpass'
+alias nombom='rm -rf node_modules bower_components && npm install && bower install'
+alias print_zpl='lp -o raw -d ZebraZP505'
+alias pry='pry -r ./config/environment'
+alias rsa='rake spec:all'
+alias s3='s3cmd'
+alias show_hidden='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder'
+alias sr='spring rspec'
+alias start_mongo='mongod --config /usr/local/etc/mongod.conf'
+alias test_migrate='RAILS_ENV=test rake db:drop db:create db:structure:load'
+alias top_commands='history | awk '\''{a[$2]++}END{for(i in a){print a[i] " " i}}'\'' | sort -rn | head'
+alias undeployed="heroku releases -a blueapron | sed -n 2p | cut -d' ' -f4 | xargs -J % git log --oneline --decorate --color --graph master --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --not %"
+alias v='mvim .'
+alias V='mvim'
+alias vbrestart="sudo /Library/StartupItems/VirtualBox/VirtualBox restart"
+alias vimrc='mvim -O ~/.dotfiles/vimrc -O ~/.dotfiles/vim/mappings.vim -O ~/.dotfiles/vim/bundle.vim'
+
+# BA
+alias ba_restore='pg_restore --host localhost --port 5432 --dbname "blueapron_stagecopy" --jobs=2 --role "blueapron" --no-password  --section pre-data --section data --section post-data --clean --verbose'
+alias wms_restore='pg_restore --host localhost --port 5432 --dbname "wms_development" --role "blueapron" --no-password  --section pre-data --section data --section post-data --clean --verbose'
+
+# rubocop 
+alias rbc='bundle exec rubocop -D $(git diff --name-only --diff-filter="ACM" master..HEAD -- "*.rb")'
+alias rcof='rubocop -f o'
+alias rcon='rubocop --only'
+alias rubopry='rubocop --only Debugger'
 
 # git
 alias deploy_prep='ggpull && gcm && gl && gco - && grbm'
 alias gap='git add --patch'
+alias gasc='git add db/structure.sql && grbc'
 alias gfp='git fetch --prune'
+alias glw="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --since='8 days ago' --"
 alias gmnf='git merge --no-ff'
 alias gpb='git branch --merged | grep -v "\*" | grep -v "master" | xargs -n 1 git branch -d'
 alias gpbd='git branch --merged | grep -v "\*" | grep -v "master"'
 alias grbm='git rebase master'
 alias grbs='git rebase --skip'
-alias glw="git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --since='8 days ago' --"
+alias gsh='git show'
 alias wms_prod_deploy="git push wms-prod master:master && gp"
 
 # heroku
+alias ba_deploylog='echo "https://github.com/blueapron/blueapron.com/compare/$(heroku releases -ablueapron -n1 | grep "Deploy" | cut -d" " -f4)...master" | pbcopy && open $(pbpaste)'
 alias hrr='heroku run rake'
 alias hrrc='heroku run rails c'
 alias hrrda='heroku run rake data:migrate'
 alias hrrdb='heroku run rake db:migrate'
+alias wms_deploylog='echo "https://github.com/blueapron/wms-server/compare/$(heroku releases -a ba-wms -n1 | grep "Deploy" | cut -d" " -f4)...master" | pbcopy && open $(pbpaste)'
 alias wms_prod_to_ops='heroku pg:backups restore `heroku pg:backups public-url -a ba-wms` DATABASE_URL -a ba-wms-ops'
 alias wms_prod_to_sim='heroku pg:backups restore `heroku pg:backups public-url -a ba-wms` DATABASE_URL -a ba-wms-simulation'
 alias wms_prod_to_staging='heroku pg:backups restore `heroku pg:backups public-url -a ba-wms` DATABASE_URL -a ba-wms-staging'
-alias ba_deploylog='echo "https://github.com/blueapron/blueapron.com/compare/$(heroku releases -ablueapron -n1 | grep "Deploy" | cut -d" " -f4)...master" | pbcopy && open $(pbpaste)'
-alias wms_deploylog='echo "https://github.com/blueapron/wms-server/compare/$(heroku releases -a ba-wms -n1 | grep "Deploy" | cut -d" " -f4)...master" | pbcopy && open $(pbpaste)'
 
 # deploys
 alias newrelic_deployment='newrelic deployments -a wms -e production -u shaun -r `git log -n 1 --pretty=format:"%h"`'

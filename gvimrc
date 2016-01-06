@@ -8,3 +8,5 @@ if has('gui_macvim')
   macmenu Edit.Find.Find\.\.\. key=<nop>
   macmenu File.New\ Tab key=<D-T>
 endif
+
+source ~/.vim/mappings.vim

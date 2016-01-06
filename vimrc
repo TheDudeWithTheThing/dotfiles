@@ -76,5 +76,3 @@ let g:rspec_runner = "os_x_iterm"
 autocmd FileType ruby,eruby
       \ set foldmethod=expr |
       \ set foldexpr=getline(v:lnum)=~'^\\s*#'
-
-source ~/.vim/mappings.vim
