@@ -32,6 +32,8 @@ source ~/.aliases
 
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
+if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
+
 eval "$(rbenv init -)"
 
 mkv_to_mp4() {
