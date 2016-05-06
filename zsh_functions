@@ -1,0 +1,30 @@
+good_morning() {
+  echo "Brew Update"
+  brew update
+
+  echo "Brew Cleanup"
+  brew cleanup
+}
+
+mkv_to_mp4() {
+  if [[ $# -ge 1 ]]; then
+    local infile=$1
+    local outfile=${(S)infile/mkv/mp4}
+    echo $1
+    echo $outfile
+    ffmpeg -i "$infile" -c:v copy -c:a libfdk_aac -b:a 128k ~/"$outfile"
+  else
+    print "What file?"
+  fi
+}
+
+wms_pull_production() {
+  cd $HOME/github/wms-server
+  # heroku pgbackups:capture -a ba-wms
+  URL=`heroku pg:backups public-url -a ba-wms`
+  curl -o production.dump $URL
+  bundle exec rake db:drop RAILS_ENV=development
+  bundle exec rake db:create RAILS_ENV=development
+  pg_restore --verbose --clean --no-acl -O -U blueapron -h localhost -d wms_development production.dump
+  rm production.dump
+}

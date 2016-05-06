@@ -1,5 +1,6 @@
 alias ag='ag --ignore=tags'
 alias agi='ag'
+alias boi='bower install'
 alias cache_clear='heroku run rails runner -e production Rails.cache.clear'
 alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --allow-file-access-from-files"
 alias chrome="open -a \"Google Chrome\""
@@ -15,6 +16,7 @@ alias make_erd='bundle exec erd --inheritance --filetype=dot --direct --attribut
 alias mou='open -a Mou'
 alias mount_important='hdiutil attach ~/Dropbox/ImportantStuff.dmg -stdinpass'
 alias nombom='rm -rf node_modules bower_components && npm install && bower install'
+alias ni='npm install'
 alias print_zpl='lp -o raw -d ZebraZP505'
 alias pry='pry -r ./config/environment'
 alias rsa='rake spec:all'
@@ -41,7 +43,8 @@ alias rcon='rubocop --only'
 alias rubopry='rubocop --only Debugger'
 
 # git
-alias deploy_prep='ggpull && gcm && gl && gco - && grbm'
+alias g='git'
+alias deploy_prep='ggpull && gcm && ggpull && gco - && grbm'
 alias gap='git add --patch'
 alias gasc='git add db/structure.sql && grbc'
 alias gfp='git fetch --prune'
@@ -56,6 +59,7 @@ alias wms_prod_deploy="git push wms-prod master:master && gp"
 
 # heroku
 alias ba_deploylog='echo "https://github.com/blueapron/blueapron.com/compare/$(heroku releases -ablueapron -n1 | grep "Deploy" | cut -d" " -f4)...master" | pbcopy && open $(pbpaste)'
+alias h='heroku'
 alias hrr='heroku run rake'
 alias hrrc='heroku run rails c'
 alias hrrda='heroku run rake data:migrate'

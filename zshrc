@@ -29,21 +29,12 @@ source $ZSH/oh-my-zsh.sh
 
 source ~/.exports
 source ~/.aliases
+source ~/.zsh_functions
 
-[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
 
 eval "$(rbenv init -)"
 
-mkv_to_mp4() {
-  if [[ $# -ge 1 ]]; then
-    local infile=$1
-    local outfile=${(S)infile/mkv/mp4}
-    echo $1
-    echo $outfile
-    ffmpeg -i "$infile" -c:v copy -c:a libfdk_aac -b:a 128k ~/"$outfile"
-  else
-    print "What file?"
-  fi
-}
+autoload -U compinit && compinit

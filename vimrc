@@ -1,27 +1,35 @@
 source ~/.vim/bundle.vim
 
 set nocompatible
-set history=1000
-set number
-set incsearch
-set shell=/bin/zsh
+
+set t_Co=256
 syntax on
-set synmaxcol=200
+colorscheme Tomorrow-Night-Eighties
 
-set nojoinspaces
-
-" Convert tabs to spaces
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2
 set expandtab
+set history=1000
+set incsearch
+set laststatus=2
+set nobackup                    " don't want no backup files
+set noerrorbells
+set nojoinspaces
+set noswapfile                  " no swap files
+set nowritebackup               " don't make a backup before overwriting a file
+set number
+set scrolloff=3 " Start scrolling three lines before horizontal border of window
+set shell=/bin/zsh
+set shiftwidth=2
 set smartindent
 set smarttab
-set laststatus=2
+set softtabstop=2
+set synmaxcol=200
+set tabstop=2
 
-set nobackup                    " don't want no backup files
-set nowritebackup               " don't make a backup before overwriting a file
-set noswapfile                  " no swap files
+
+command Greview :Git! diff --staged
+
+" Airline
+let g:airline_theme = 'base16'
 
 " Syntastic options
 let g:syntastic_mode_map = { 'mode': 'active' }
@@ -34,7 +42,7 @@ let g:syntastic_ruby_exec = '~/.rbenv/shims/ruby'
 
 " Ack / Grep / CtrlP
 set grepprg="ag --nocolor --nogroup --column"
-let g:agprg="ag --nocolor --nogroup --column --ignore=tags"
+let g:ag_prg="ag --nocolor --nogroup --column --ignore=tags"
 let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
 let g:ctrlp_use_caching=0
 
@@ -45,10 +53,13 @@ let g:ctrlp_use_caching=0
 let g:Tlist_Ctags_Cmd="ctags --exclude='*.js'"
 
 " Display extra whitespace
-set list listchars=tab:»·,trail:·
+scriptencoding utf-8
+set encoding=utf-8
+set list listchars=tab:»·,trail:.
 
 " NERDTree
 let g:NERDTreeDirArrows=0
+let g:NERDTreeQuitOnOpen=0
 
 " git commit settings
 autocmd Filetype gitcommit setlocal spell textwidth=72
@@ -76,3 +87,6 @@ let g:rspec_runner = "os_x_iterm"
 autocmd FileType ruby,eruby
       \ set foldmethod=expr |
       \ set foldexpr=getline(v:lnum)=~'^\\s*#'
+
+
+source ~/.vim/mappings.vim

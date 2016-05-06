@@ -1,8 +1,8 @@
 map <leader>n :NERDTreeToggle<CR>
 
 " Quickly change quotes
-vnoremap <leader>c' :s/"/'/<CR>
-vnoremap <leader>c" :s/'/"/<CR>
+vnoremap <leader>c' :s/"/'/g<CR>
+vnoremap <leader>c" :s/'/"/g<CR>
 nmap "" cs'"
 nmap '' cs"'
 
@@ -38,6 +38,10 @@ map <leader>a :Ag<CR>
 " yank to end
 nnoremap Y y$
 
+" Join lines and restore cursor location (J)
+nnoremap J mjJ`j
+
+
 " Clean up crap
 " fix white space
 map <leader>fws :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
@@ -58,9 +62,14 @@ map <leader>rc :Econtroller<CR>
 map <leader>rv :Eview<CR>
 map <leader>rm :Emodel<CR>
 map <leader>rf :RVfactory<CR>
-map <C-W>gv <Plug>RailsVSplitFind
+map <C-W>gv <Plug>RailsSplitFind<C-W>H
 
 " single quote word
 map <leader>sqw ysiw'
 " double quote word
 map <leader>dqw ysiw"
+
+nnoremap <leader>gr :Greview<cr>
+
+map <leader>jb :colorscheme jellybeans<CR>
+map <leader>80s :colorscheme Tomorrow-Night-Eighties<CR>

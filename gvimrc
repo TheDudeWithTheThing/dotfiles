@@ -1,6 +1,6 @@
 set guifont=Inconsolata:h14
 set bg=dark
-colorscheme jellybeans "ir_black
+colorscheme jellybeans
 
 autocmd FileType ruby setlocal cc=80,120
 
@@ -9,4 +9,3 @@ if has('gui_macvim')
   macmenu File.New\ Tab key=<D-T>
 endif
 
-source ~/.vim/mappings.vim
