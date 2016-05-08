@@ -1,8 +1,8 @@
 good_morning() {
-  echo "Brew Update"
+  echo "🍺  $fg[yellow]Brew Update $fg[white]"
   brew update
 
-  echo "Brew Cleanup"
+  echo "🍺  $fg[yellow]Brew Cleanup $fg[white]"
   brew cleanup
 }
 
