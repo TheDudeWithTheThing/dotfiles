@@ -81,12 +81,14 @@ let g:ctrlp_prompt_mappings = {
 let g:ctrlp_custom_ignore = { 'dir': '\v[\/](node_modules)|(\.(git|hg|svn))$', 'file': '\v\.(exe|so|dll|DS_STORE)$' }
 
 " vim-rspec
-let g:rspec_runner = "os_x_iterm"
+let g:rspec_runner = "os_x_iterm2"
 " let g:rspec_command = "!rspec --drb {spec}"
 
 autocmd FileType ruby,eruby
       \ set foldmethod=expr |
       \ set foldexpr=getline(v:lnum)=~'^\\s*#'
 
+" rust
+let g:rustfmt_autosave = 1
 
 source ~/.vim/mappings.vim

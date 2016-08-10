@@ -4,7 +4,6 @@ alias boi='bower install'
 alias cache_clear='heroku run rails runner -e production Rails.cache.clear'
 alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --allow-file-access-from-files"
 alias chrome="open -a \"Google Chrome\""
-alias db_go='rake blueapron:db:import'
 alias embers='ember server --watcher=polling'
 alias env='env | sort'
 alias fs='foreman s'
@@ -17,14 +16,13 @@ alias mou='open -a Mou'
 alias mount_important='hdiutil attach ~/Dropbox/ImportantStuff.dmg -stdinpass'
 alias nombom='rm -rf node_modules bower_components && npm install && bower install'
 alias ni='npm install'
+alias nshrink='rm npm-shrinkwrap.json && npm shrinkwrap'
 alias print_zpl='lp -o raw -d ZebraZP505'
 alias pry='pry -r ./config/environment'
-alias rsa='rake spec:all'
 alias s3='s3cmd'
 alias show_hidden='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder'
 alias sr='spring rspec'
 alias start_mongo='mongod --config /usr/local/etc/mongod.conf'
-alias test_migrate='RAILS_ENV=test rake db:drop db:create db:structure:load'
 alias top_commands='history | awk '\''{a[$2]++}END{for(i in a){print a[i] " " i}}'\'' | sort -rn | head'
 alias undeployed="heroku releases -a blueapron | sed -n 2p | cut -d' ' -f4 | xargs -J % git log --oneline --decorate --color --graph master --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --not %"
 alias v='mvim .'
@@ -32,8 +30,14 @@ alias V='mvim'
 alias vbrestart="sudo /Library/StartupItems/VirtualBox/VirtualBox restart"
 alias vimrc='mvim -O ~/.dotfiles/vimrc -O ~/.dotfiles/vim/mappings.vim -O ~/.dotfiles/vim/bundle.vim'
 
+# rake
+alias rdm='rake db:migrate'
+alias rdr='rake db:rollback'
+alias rsa='rake spec:all'
+alias test_migrate='RAILS_ENV=test rake db:drop db:create db:structure:load'
+
 # BA
-alias ba_restore='pg_restore --host localhost --port 5432 --dbname "blueapron_stagecopy" --jobs=2 --role "blueapron" --no-password  --section pre-data --section data --section post-data --clean --verbose'
+alias ba_restore='pg_restore --host localhost --port 5432 --dbname "blueapron_development" --jobs=2 --role "blueapron" --no-password  --section pre-data --section data --section post-data --clean --verbose'
 alias wms_restore='pg_restore --host localhost --port 5432 --dbname "wms_development" --role "blueapron" --no-password  --section pre-data --section data --section post-data --clean --verbose'
 
 # rubocop 

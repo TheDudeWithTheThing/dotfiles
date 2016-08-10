@@ -4,6 +4,11 @@ good_morning() {
 
   echo "🍺  $fg[yellow]Brew Cleanup $fg[white]"
   brew cleanup
+
+  echo "📛  wms-server git update"
+  cd ~/github/wms-server
+  ggpull
+  gfp
 }
 
 mkv_to_mp4() {

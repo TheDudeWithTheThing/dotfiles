@@ -5,15 +5,12 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-"Bundle 'vim-scripts/Align'
-"Bundle 'vim-scripts/SQLUtilities'
 Bundle 'AndrewRadev/splitjoin.vim'
 Bundle 'bling/vim-airline'
 Bundle 'vim-airline/vim-airline-themes'
 Bundle 'christoomey/vim-rfactory'
 Bundle 'ervandew/supertab'
 Bundle 'heartsentwined/vim-emblem.git'
-" Bundle 'jeffkreeftmeijer/vim-numbertoggle'
 Bundle 'jgdavey/tslime.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
@@ -24,6 +21,7 @@ Bundle 'Raimondi/delimitMate'
 Bundle 'rizzatti/dash.vim'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rking/ag.vim'
+Bundle 'rust-lang/rust.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'Shutnik/jshint2.vim'
@@ -42,3 +40,7 @@ Bundle 'vim-scripts/matchit.zip'
 Bundle 'wgibbs/vim-irblack'
 
 filetype plugin indent on
+
+"Bundle 'vim-scripts/Align'
+"Bundle 'vim-scripts/SQLUtilities'
+"Bundle 'jeffkreeftmeijer/vim-numbertoggle'

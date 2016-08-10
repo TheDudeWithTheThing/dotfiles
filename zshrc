@@ -23,7 +23,7 @@ ZSH_THEME="robbyrussell"
 COMPLETION_WAITING_DOTS="true"
 
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-plugins=(git heroku brew rake bundler docker boot2docker)
+plugins=(git heroku brew rake bundler zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -37,4 +37,4 @@ if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
 
 eval "$(rbenv init -)"
 
-autoload -U compinit && compinit
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

@@ -42,6 +42,7 @@
   trustExitCode = true
 [commit]
   template = ~/.gitmessage
+	gpgsign = true
 [rerere]
   enabled = true
 [filter "media"]
@@ -59,3 +60,7 @@
 	required = true
 [pull]
 	rebase = true
+[diff]
+	compactionHeuristic = true
+[gpg]
+	program = gpg2
