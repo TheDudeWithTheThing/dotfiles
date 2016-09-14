@@ -63,7 +63,10 @@ let g:NERDTreeQuitOnOpen=0
 
 " git commit settings
 autocmd Filetype gitcommit setlocal spell textwidth=72
+
 au BufNewFile,BufRead *.es6 set filetype=javascript
+
+au BufNewFile,BufRead *.exs set filetype=elixir
 
 " highlight debugging
 au BufEnter *.rb syn match error contained "\<binding.pry\>"

@@ -9,6 +9,19 @@ good_morning() {
   cd ~/github/wms-server
   ggpull
   gfp
+  gpb
+
+  echo "📛  wms-desktop git update"
+  cd ~/github/wms-desktop
+  ggpull
+  gfp
+  gpb
+
+  echo "📛  wms-mobile git update"
+  cd ~/github/wms-mobile
+  ggpull
+  gfp
+  gpb
 }
 
 mkv_to_mp4() {
@@ -30,6 +43,6 @@ wms_pull_production() {
   curl -o production.dump $URL
   bundle exec rake db:drop RAILS_ENV=development
   bundle exec rake db:create RAILS_ENV=development
-  pg_restore --verbose --clean --no-acl -O -U blueapron -h localhost -d wms_development production.dump
+  pg_restore --jobs=2 --verbose --clean --no-acl -O -U blueapron -h localhost -d wms_development production.dump
   rm production.dump
 }

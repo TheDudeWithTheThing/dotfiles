@@ -13,6 +13,7 @@ alias hide_hidden='defaults write com.apple.finder AppleShowAllFiles NO; killall
 alias hl='history | less'
 alias make_erd='bundle exec erd --inheritance --filetype=dot --direct --attributes=foreign_keys,content; dot -Tpng erd.dot > erd.png; rm erd.dot'
 alias mou='open -a Mou'
+alias mount_chubs='hdiutil attach /Users/employee/Google\ Drive/Chubs.dmg -stdinpass'
 alias mount_important='hdiutil attach ~/Dropbox/ImportantStuff.dmg -stdinpass'
 alias nombom='rm -rf node_modules bower_components && npm install && bower install'
 alias ni='npm install'
