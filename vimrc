@@ -9,6 +9,7 @@ colorscheme Tomorrow-Night-Eighties
 set expandtab
 set history=1000
 set incsearch
+set iskeyword+=-
 set laststatus=2
 set nobackup                    " don't want no backup files
 set noerrorbells

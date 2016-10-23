@@ -43,6 +43,16 @@ wms_pull_production() {
   curl -o production.dump $URL
   bundle exec rake db:drop RAILS_ENV=development
   bundle exec rake db:create RAILS_ENV=development
-  pg_restore --jobs=2 --verbose --clean --no-acl -O -U blueapron -h localhost -d wms_development production.dump
+  pg_restore --jobs=4 --verbose --clean --no-acl -O -U blueapron -h localhost -d wms_development production.dump
   rm production.dump
+}
+
+reap() {
+  ag $1
+  echo "$fg[yellow] ######################### $fg[white]"
+  find . -name "*$1*" -not \( -path "./tmp/*" \) -not \( -path "./node_modules/*" \) -not \( -path "./bower_components/*" \) -not \( -path "./vendor/*" \)
+}
+
+cut_clip() {
+  ffmpeg -i $1 -c:v mpeg4 -an -ss $2 -t $3 -qscale:v 3 ./clip.mp4
 }

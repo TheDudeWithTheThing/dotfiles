@@ -4,7 +4,6 @@ alias boi='bower install'
 alias cache_clear='heroku run rails runner -e production Rails.cache.clear'
 alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary --allow-file-access-from-files"
 alias chrome="open -a \"Google Chrome\""
-alias embers='ember server --watcher=polling'
 alias env='env | sort'
 alias fs='foreman s'
 alias gs='gss'
@@ -30,6 +29,12 @@ alias v='mvim .'
 alias V='mvim'
 alias vbrestart="sudo /Library/StartupItems/VirtualBox/VirtualBox restart"
 alias vimrc='mvim -O ~/.dotfiles/vimrc -O ~/.dotfiles/vim/mappings.vim -O ~/.dotfiles/vim/bundle.vim'
+
+#ember
+alias eb='ember build'
+alias et='ember test'
+alias ets='ember test -s'
+alias embers='ember server --watcher=polling'
 
 # rake
 alias rdm='rake db:migrate'
