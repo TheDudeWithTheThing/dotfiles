@@ -73,3 +73,5 @@ nnoremap <leader>gr :Greview<cr>
 
 map <leader>jb :colorscheme jellybeans<CR>
 map <leader>80s :colorscheme Tomorrow-Night-Eighties<CR>
+
+map <leader>fs mgggi# frozen_string_literal: true<CR><CR><ESC>'g
