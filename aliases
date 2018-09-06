@@ -34,6 +34,7 @@ alias vimrc='mvim -O ~/.dotfiles/vimrc -O ~/.dotfiles/vim/mappings.vim -O ~/.dot
 #ember
 alias e='ember'
 alias eb='ember build'
+alias edd='ember deploy development --verbose --activate=true'
 alias eds='ember deploy staging --verbose --activate'
 alias et='ember test'
 alias ets='ember test -s'
@@ -50,7 +51,7 @@ alias ba_restore='pg_restore --host localhost --port 5432 --dbname "blueapron_de
 alias wms_restore='pg_restore --host localhost --port 5432 --dbname "wms_development" --role "blueapron" --no-password  --section pre-data --section data --section post-data --clean --verbose --jobs=4'
 
 # rubocop 
-alias rbc='bundle exec rubocop -D $(git diff --name-only --diff-filter="ACM" master..HEAD -- "*.rb")'
+alias rbc='bundle exec rubocop -D $(git diff --name-only master..HEAD)'
 alias rcof='rubocop -f o'
 alias rcon='rubocop --only'
 alias rubopry='rubocop --only Debugger'
@@ -91,7 +92,15 @@ alias rollbar_deployment='curl https://api.rollbar.com/api/1/deploy/ -F access_t
 #rspec
 alias rspec_fails='rspec --only-failures'
 
-#brew
+# brew
 alias bssp='brew services start postgresql'
 alias bsstp='brew services stop postgresql'
 
+# rails
+alias rs='rails s'
+alias rc='rails c'
+
+# goba
+alias prod_servers='ba ps list --environment=production --businessUnit=wms'
+alias staging_servers='ba ps list --environment=staging --businessUnit=wms'
+alias larae='ba exec -e production -r wms-server -b wms rails c'

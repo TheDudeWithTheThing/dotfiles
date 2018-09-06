@@ -62,7 +62,6 @@ map <leader>rc :Econtroller<CR>
 map <leader>rv :Eview<CR>
 map <leader>rm :Emodel<CR>
 map <leader>rf :RVfactory<CR>
-map <C-W>gv <Plug>RailsSplitFind<C-W>H
 
 " single quote word
 map <leader>sqw ysiw'
@@ -74,4 +73,6 @@ nnoremap <leader>gr :Greview<cr>
 map <leader>jb :colorscheme jellybeans<CR>
 map <leader>80s :colorscheme Tomorrow-Night-Eighties<CR>
 
-map <leader>fs mgggi# frozen_string_literal: true<CR><CR><ESC>'g
+map <leader>fs mgggi# frozen_string_literal: true<ESC>'g
+
+map <leader>eb :EasyBuffer<CR>
