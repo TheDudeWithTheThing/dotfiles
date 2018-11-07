@@ -38,3 +38,6 @@ if which nodenv > /dev/null; then eval "$(nodenv init -)"; fi
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 eval "$(rbenv init -)"
+export PATH="/usr/local/opt/php@5.6/bin:$PATH"
+export PATH="/usr/local/opt/php@5.6/sbin:$PATH"
+export PATH="/usr/local/opt/openssl/bin:$PATH"
