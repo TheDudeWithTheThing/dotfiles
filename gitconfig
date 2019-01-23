@@ -19,7 +19,7 @@
 [github]
   user = thedudewiththething
 [core]
-  editor = /usr/local/bin/vim
+  editor = /usr/local/bin/nvim
   excludesfile = ~/.gitignore_global
 [alias]
     st = status
