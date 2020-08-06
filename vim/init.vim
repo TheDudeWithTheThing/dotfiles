@@ -4,6 +4,7 @@ let mapleader = "\\"
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'psf/black', { 'tag': '19.10b0' } " Python Black formatter
 Plug 'bronson/vim-trailing-whitespace' " Highlights trailing whitespace in red and provides :FixWhitespace to fix it.
 Plug 'christoomey/vim-system-copy' " Vim plugin for copying to the system clipboard with text-objects and motions
 Plug 'christoomey/vim-tmux-navigator' " Seamless navigation between tmux panes and vim splits
@@ -79,12 +80,21 @@ let g:ale_linters = {'python': ['flake8', 'pycodestyle', 'mypy']}
 let g:ale_fixers = {'python': ['black', 'isort']}
 let g:ale_python_black_options = "--line-length 120"
 
+" let g:ale_python_flake8_auto_pipenv = 1
+" let g:ale_python_pylint_auto_pipenv = 1
+" let pipenv_venv_path = system('pipenv --venv')
+
+" vim black
+" let g:black_linelength = 120
+
+" autocmd BufWritePre *.py execute ':ALEFix'
+
 " Display extra whitespace
 scriptencoding utf-8
 set encoding=utf-8
 set list listchars=tab:»·,trail:.
 
-" Open new split panes to right and bottom
+" Opn new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
 
@@ -140,5 +150,7 @@ nmap <silent> t<C-f> :TestFile<CR>
 nmap <silent> t<C-s> :TestSuite<CR>
 nmap <silent> t<C-l> :TestLast<CR>
 nmap <silent> t<C-g> :TestVisit<CR>
+
+" fugitive / rhubarb
 
 source ~/.config/nvim/mappings.vim

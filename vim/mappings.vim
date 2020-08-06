@@ -20,12 +20,6 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
-nmap <D-/> <Plug>CommentaryLine
-vmap <D-/> <Plug>Commentary
-
-map <D-f> :CtrlP<CR>
-map <D-t> :CtrlPTag<CR>
-
 " Index ctags from any project, including those outside Rails
 map <leader>ct :!ctags -R .<CR>
 
@@ -41,15 +35,11 @@ nnoremap Y y$
 " Join lines and restore cursor location (J)
 nnoremap J mjJ`j
 
-
 " Clean up crap
 " fix white space
 map <leader>fws :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
-" fix hash syntax
-map <leader>fhs :%s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
-vmap <leader>fhs :s/:\([^ ]*\)\(\s*\)=>/\1:/g<CR>
 
-nmap K :Ag "\b<C-R><C-W>\b"<CR>
+nmap K :Ack "\b<C-R><C-W>\b"<CR>
 
 " vim-rspec
 map <Leader>rt :call RunCurrentSpecFile()<CR>
@@ -71,8 +61,8 @@ map <leader>dqw ysiw"
 nnoremap <leader>gr :Greview<cr>
 
 map <leader>jb :colorscheme jellybeans<CR>
-map <leader>80s :colorscheme Tomorrow-Night-Eighties<CR>
 
 map <leader>fs mgggi# frozen_string_literal: true<ESC>'g
 
-map <leader>eb :EasyBuffer<CR>
+map <leader>b :EasyBuffer<CR>
+map <leader>pdb iimport pdb; pdb.set_trace()<ESC>

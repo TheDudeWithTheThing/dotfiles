@@ -4,8 +4,20 @@
 #
 # 72-character wrapped longer description. This should answer:
 #
-# * Why was this change necessary?
-# * How does it address the problem?
-# * Are there any side effects?
-#
-# Include a link to the ticket, if any.
+##### SUMMARY
+# Description of the PR and/or a link to the ticket.
+
+#### STATUS
+# A short description of the completeness of the PR and what kind of feedback you want.
+
+#### CHANGES
+# A bulleted list of changes. You can use the commits list that is auto-populated in the description if it is sufficiently thorough and clear.
+
+#### HOW TO VERIFY
+# Optional instructions on how to run the code and review the implemented changes locally in addition to validations of changes (e.g. screenshots, videos, Lighthouse scores, etc).
+
+#### NOTES
+# Any additional comments / context / explanations / justifications for decisions made.
+
+#### TODO
+# An optional bulleted list of outstanding work.

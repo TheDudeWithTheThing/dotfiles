@@ -18,22 +18,24 @@ alias s3='s3cmd'
 alias show_hidden='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder'
 alias sr='spring rspec'
 alias ss='spring stop'
-alias start_mongo='mongod --config /usr/local/etc/mongod.conf'
 alias top_commands='history | awk '\''{a[$2]++}END{for(i in a){print a[i] " " i}}'\'' | sort -rn | head'
-alias undeployed="heroku releases -a blueapron | sed -n 2p | cut -d' ' -f4 | xargs -J % git log --oneline --decorate --color --graph master --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --not %"
 alias v='nvim .'
 alias V='nvim'
 alias vbrestart="sudo /Library/StartupItems/VirtualBox/VirtualBox restart"
 alias vimrc='nvim -O ~/.dotfiles/vimrc -O ~/.dotfiles/vim/mappings.vim -O ~/.dotfiles/vim/bundle.vim'
+alias vimdiff='nvim -d'
+alias fix_python_vim='pip3 install pynvim'
+alias is='git diff --name-only master | xargs isort'
+alias es='git diff --name-only master | xargs eslint --fix'
 
 #ember
-alias e='ember'
-alias eb='ember build'
-alias edd='ember deploy development --verbose --activate=true'
-alias eds='ember deploy staging --verbose --activate'
-alias et='ember test'
-alias ets='ember test -s'
-alias embers='ember server --watcher=polling'
+# alias e='ember'
+# alias eb='ember build'
+# alias edd='ember deploy development --verbose --activate=true'
+# alias eds='ember deploy staging --verbose --activate'
+# alias et='ember test'
+# alias ets='ember test -s'
+# alias embers='ember server --watcher=polling'
 
 # rake
 alias rdm='rake db:migrate'
@@ -41,11 +43,7 @@ alias rdr='rake db:rollback'
 alias rsa='rake spec:all'
 alias test_migrate='spring stop; RAILS_ENV=test rake db:drop db:create db:structure:load'
 
-# BA
-alias ba_restore='pg_restore --host localhost --port 5432 --dbname "blueapron_development" --jobs=2 --role "blueapron" --no-password  --section pre-data --section data --section post-data --clean --verbose'
-alias wms_restore='pg_restore --host localhost --port 5432 --dbname "wms_development" --role "blueapron" --no-password  --section pre-data --section data --section post-data --clean --verbose --jobs=4'
-
-# rubocop 
+# rubocop
 alias rbc='bundle exec rubocop -D $(git diff --name-only master..HEAD)'
 alias rcof='rubocop -f o'
 alias rcon='rubocop --only'
@@ -54,7 +52,7 @@ alias rubopry='rubocop --only Debugger'
 
 # git
 alias g='git'
-alias deploy_prep='ggpull && gcm && ggpull && gco - && grbm'
+alias rbm='ggpull && gcm && ggpull && gco - && grbm'
 alias gap='git add --patch'
 alias gasc='git add db/structure.sql && grbc'
 alias gfp='git fetch --prune'
@@ -66,24 +64,20 @@ alias grbm='git rebase master'
 alias grbs='git rebase --skip'
 alias gsh='git show'
 alias gsl='git stash list'
-alias wms_prod_deploy="git push wms-prod master:master && gp"
+alias can_deploy='gcm && ggpull && gco release-prod && ggpull && git log --oneline --graph release-prod..master'
 
 # heroku
-alias ba_deploylog='echo "https://github.com/blueapron/blueapron.com/compare/$(heroku releases -ablueapron -n1 | grep "Deploy" | cut -d" " -f4)...master" | pbcopy && open $(pbpaste)'
-alias h='heroku'
-alias hrr='heroku run rake'
-alias hrrc='heroku run rails c'
-alias hrrda='heroku run rake data:migrate'
-alias hrrdb='heroku run rake db:migrate'
-alias wms_deploylog='echo "https://github.com/blueapron/wms-server/compare/$(heroku releases -a ba-wms -n1 | grep "Deploy" | cut -d" " -f4)...master" | pbcopy && open $(pbpaste)'
-alias wms_prod_to_ops='heroku pg:backups restore `heroku pg:backups public-url -a ba-wms` DATABASE_URL -a ba-wms-ops'
-alias wms_prod_to_sim='heroku pg:backups restore `heroku pg:backups public-url -a ba-wms` DATABASE_URL -a ba-wms-simulation'
-alias wms_prod_to_staging='heroku pg:backups restore `heroku pg:backups:public-url -a ba-wms` DATABASE_URL -a ba-wms-staging'
-alias gpstaging='git push wms-staging master:master'
+# alias h='heroku'
+# alias hrr='heroku run rake'
+# alias hrrc='heroku run rails c'
+# alias hrrda='heroku run rake data:migrate'
+# alias hrrdb='heroku run rake db:migrate'
+# alias wms_deploylog='echo "https://github.com/blueapron/wms-server/compare/$(heroku releases -a ba-wms -n1 | grep "Deploy" | cut -d" " -f4)...master" | pbcopy && open $(pbpaste)'
 
 # deploys
 alias newrelic_deployment='newrelic deployments -a wms -e production -u shaun -r `git log -n 1 --pretty=format:"%h"`'
 alias rollbar_deployment='curl https://api.rollbar.com/api/1/deploy/ -F access_token=$ROLLBAR_POST_TOKEN -F environment=production -F revision=`git log -n 1 --pretty=format:"%h"` -F local_username=shaun'
+alias av=ansible-vault
 
 #rspec
 alias rspec_fails='rspec --only-failures'
@@ -96,7 +90,6 @@ alias bsstp='brew services stop postgresql'
 alias rs='rails s'
 alias rc='rails c'
 
-# goba
-alias prod_servers='ba ps list --environment=production --businessUnit=wms'
-alias staging_servers='ba ps list --environment=staging --businessUnit=wms'
-alias larae='ba exec -e production -r wms-server -b wms rails c'
+# docker
+alias drm="docker ps -aq --no-trunc -f status=exited | xargs docker rm"
+alias drmi="docker images -q --filter dangling=true | xargs docker rmi"

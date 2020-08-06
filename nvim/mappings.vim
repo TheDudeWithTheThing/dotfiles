@@ -39,7 +39,7 @@ nnoremap J mjJ`j
 " fix white space
 map <leader>fws :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
-nmap K :Ag "\b<C-R><C-W>\b"<CR>
+nmap K :Ack "\b<C-R><C-W>\b"<CR>
 
 " vim-rspec
 map <Leader>rt :call RunCurrentSpecFile()<CR>
@@ -65,3 +65,4 @@ map <leader>jb :colorscheme jellybeans<CR>
 map <leader>fs mgggi# frozen_string_literal: true<ESC>'g
 
 map <leader>b :EasyBuffer<CR>
+map <leader>pdb iimport pdb; pdb.set_trace()<ESC>
