@@ -25,7 +25,7 @@ alias vbrestart="sudo /Library/StartupItems/VirtualBox/VirtualBox restart"
 alias vimrc='nvim -O ~/.dotfiles/vimrc -O ~/.dotfiles/vim/mappings.vim -O ~/.dotfiles/vim/bundle.vim'
 alias vimdiff='nvim -d'
 alias fix_python_vim='pip3 install pynvim'
-alias is='git diff --name-only master | xargs isort'
+alias is='grt && git diff --name-only master | xargs isort'
 alias es='git diff --name-only master | xargs eslint --fix'
 
 #ember

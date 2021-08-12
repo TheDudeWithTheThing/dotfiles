@@ -1,33 +1,3 @@
-good_morning() {
-  local current_dir=`pwd`
-
-  echo "🍺  $fg[yellow]Brew Update $fg[white]"
-  brew update
-
-  echo "🍺  $fg[yellow]Brew Cleanup $fg[white]"
-  brew cleanup
-
-  echo "📛  wms-server git update"
-  cd ~/github/wms-server
-  ggpull
-  gfp
-  gpb
-
-  echo "📛  wms-desktop git update"
-  cd ~/github/wms-desktop
-  ggpull
-  gfp
-  gpb
-
-  echo "📛  wms-mobile git update"
-  cd ~/github/wms-mobile
-  ggpull
-  gfp
-  gpb
-
-  cd $current_dir
-}
-
 mkv_to_mp4() {
   if [[ $# -ge 1 ]]; then
     local infile=$1
@@ -40,17 +10,6 @@ mkv_to_mp4() {
   fi
 }
 
-wms_pull_production() {
-  cd $HOME/github/wms-server
-  # heroku pgbackups:capture -a ba-wms
-  URL=`heroku pg:backups public-url -a ba-wms`
-  curl -o production.dump $URL && \
-  bundle exec rake db:drop RAILS_ENV=development && \
-  bundle exec rake db:create RAILS_ENV=development && \
-  pg_restore --jobs=4 --verbose --clean --no-acl -O -U blueapron -h localhost -d wms_development production.dump && \
-  rm production.dump
-}
-
 reap() {
   ag $1
   echo "$fg[yellow] ######################### $fg[white]"
@@ -61,34 +20,9 @@ cut_clip() {
   ffmpeg -i $1 -c:v mpeg4 -an -ss $2 -t $3 -qscale:v 3 ./clip.mp4
 }
 
-ember_upgrade() {
-  if [[ $# -ge 1 ]]; then
-    echo "$fg[green]npm uninstall -g ember-cli$fg[white]"
-    npm uninstall -g ember-cli
-
-    echo "$fg[green]npm cache clean$fg[white]"
-    npm cache clean
-
-    echo "$fg[green]bower cache clean$fg[white]"
-    bower cache clean
-
-    echo "$fg[green]npm install -g ember-cli@$1$fg[white]"
-    npm install -g ember-cli@$1
-
-    echo "$fg[green]rm -rf node_modules bower_components dist tmp$fg[white]"
-    rm -rf node_modules bower_components dist tmp
-
-    echo "$fg[green]npm install --save-dev ember-cli@$1$fg[white]"
-    npm install --save-dev ember-cli@$1
-
-    echo "$fg[green]npm install$fg[white]"
-    npm install
-
-    echo "$fg[green]bower install$fg[white]"
-    bower install
-
-    echo "$fg[yellow]Now run ember init and answer questions!$fg[white]"
-  else
-    echo "$fg[red]I need a version stupid, something like 2.3.0$fg[white]"
-  fi
+# Run man in vim!
+#
+# Usage: vman col
+function vman() {
+    man $* | col -b | vim -c 'set ft=man nomod nolist' -
 }
